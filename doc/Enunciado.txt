@@ -1,0 +1,9 @@
+📌 Requisitos:
+Usuario tiene atributos: nombre, edad, email.
+
+GestorUsuarios debe:
+
+- Añadir usuarios si el email es válido y no está duplicado.
+- Eliminar usuarios por email.
+- Buscar usuarios por email.
+- Obtener la cantidad de usuarios registrados.
