@@ -5,18 +5,18 @@ public class GestionDeUsuarios {
 	private Usuario[] usuarios;
 	private Integer usuariosActivos;
 
-	public GestionDeUsuarios(Integer i) {
+	public GestionDeUsuarios(Integer cantidadTotalDeUsuarios) {
 		
-		usuarios = new Usuario[i];
+		usuarios = new Usuario[cantidadTotalDeUsuarios];
 		usuariosActivos = 0;
 	}
 	
 
-	public Boolean agregarUsuario(Usuario persona1) {
+	public Boolean agregarUsuario(Usuario persona) {
 		
 		Boolean seAgrego = false;
-		if (validarUsuario(persona1)) {
-			usuarios[usuariosActivos] = persona1;
+		if (validarUsuario(persona)) {
+			usuarios[usuariosActivos] = persona;
 			usuariosActivos++;
 			 seAgrego = true;
 			 }
@@ -24,8 +24,8 @@ public class GestionDeUsuarios {
 		}
 	
 
-	public Boolean validarUsuario(Usuario persona1) {
-		return validarEmail(persona1.getEmail()) && (buscarUsuarioPorEmail(persona1.getEmail()) == null);
+	public Boolean validarUsuario(Usuario persona) {
+		return validarEmail(persona.getEmail()) && (buscarUsuarioPorEmail(persona.getEmail()) == null);
 	}
 	
 

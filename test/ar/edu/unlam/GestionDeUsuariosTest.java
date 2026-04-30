@@ -11,10 +11,12 @@ public class GestionDeUsuariosTest {
 	
 	private GestionDeUsuarios gestion;
 	private Usuario persona1;
+	private Usuario persona2;
 	
 	@BeforeEach
 	void inicializacion() {	
 		persona1 = new Usuario("Julian", 31, "example@example.com");
+		persona2 = new Usuario("Luciano", 33, "example@example.com.ar");
 		gestion = new GestionDeUsuarios(10);
 	}
 	
@@ -31,10 +33,8 @@ public class GestionDeUsuariosTest {
 	
 	@Test
 	public void agregarUsuarioEmailCorectoQueTermineConPuntoComYConPuntoAR() {
-		Usuario usuarioConMailCorrecto1 = new Usuario("Julian", 31, "example@example.com");
-		Usuario usuarioConMailCorrecto2 = new Usuario("Luciano", 31, "example@example.com.ar");
-		assertTrue(gestion.agregarUsuario(usuarioConMailCorrecto1));
-		assertTrue(gestion.agregarUsuario(usuarioConMailCorrecto2));
+		assertTrue(gestion.agregarUsuario(persona1));
+		assertTrue(gestion.agregarUsuario(persona2));
 	}
 	
 	@Test
@@ -57,13 +57,11 @@ public class GestionDeUsuariosTest {
 		
 	}
 	
-	
 	@Test
 	public void testObtenerLaCantidadDeUsuariosRegistrados() {
 		gestion.agregarUsuario(persona1);
 		assertEquals(1, gestion.getUsuariosRegistrados());
 	}
-	
 	
 	@Test
 	public void testObtenerLaCantidadDeUsuariosRegistradosLuegoDeEliminar() {
@@ -72,6 +70,4 @@ public class GestionDeUsuariosTest {
 		gestion.eliminarUsuario("example@example.com");
 		assertEquals(0, gestion.getUsuariosRegistrados());
 	}
-	
-	
 }
