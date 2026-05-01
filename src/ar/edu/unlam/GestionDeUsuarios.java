@@ -1,8 +1,8 @@
 package ar.edu.unlam;
 
 public class GestionDeUsuarios {
-
-	private Usuario[] usuarios;
+	
+	private Usuario usuarios[];
 	private Integer usuariosActivos;
 
 	public GestionDeUsuarios(Integer cantidadTotalDeUsuarios) {
@@ -13,19 +13,17 @@ public class GestionDeUsuarios {
 	
 
 	public Boolean agregarUsuario(Usuario persona) {
-		
-		Boolean seAgrego = false;
 		if (validarUsuario(persona)) {
 			usuarios[usuariosActivos] = persona;
 			usuariosActivos++;
-			 seAgrego = true;
+			 return true;
 			 }
-			return seAgrego;
+			return false;
 		}
 	
 
 	public Boolean validarUsuario(Usuario persona) {
-		return validarEmail(persona.getEmail()) && (buscarUsuarioPorEmail(persona.getEmail()) == null);
+		return validarEmail(persona.getEmail()) && buscarUsuarioPorEmail(persona.getEmail()) == null;
 	}
 	
 
@@ -34,7 +32,6 @@ public class GestionDeUsuarios {
 	}
 
 	public Usuario buscarUsuarioPorEmail(String email) {
-	
 		Usuario usuarioEncontrado = null;
 		for (int i = 0; i < usuarios.length; i++) {
 			if (usuarios[i] != null && usuarios[i].getEmail().equals(email)) {
@@ -46,7 +43,6 @@ public class GestionDeUsuarios {
 	
 
 	public Boolean eliminarUsuario(String email) {
-
 		for (int i = 0; i < usuarios.length; i++) {
 			if (usuarios[i] != null && usuarios[i].getEmail().equals(email)) {
 				usuarios[i] = null;
@@ -57,7 +53,7 @@ public class GestionDeUsuarios {
 		return false;
 	}
 	
-
+	
 	public Integer getUsuariosRegistrados() {
 		return usuariosActivos;
 	}

@@ -1,10 +1,11 @@
 package ar.edu.unlam;
 
-public class Usuario {
+public class Usuario  {
+
 	String nombre;
 	int edad;
 	String email;
-	
+
 	public Usuario(String nombre, int edad, String email) {
 		this.nombre = nombre;
 		this.edad = edad;
